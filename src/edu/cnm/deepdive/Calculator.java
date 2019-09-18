@@ -5,7 +5,7 @@ import java.util.LinkedList;
 import java.util.NoSuchElementException;
 import java.util.Scanner;
 
-public class Operator {
+public class Calculator {
 
   private Scanner scanner;
   private Deque<Double> operands;
@@ -15,14 +15,15 @@ public class Operator {
     calc.process();
   }
 
-
+  public Calculator(Scanner scanner) {
+    this.scanner = scanner;
+    operands = new LinkedList<>();
+  }
 
   public void process() {
     try {
-      while (true) {
-        if (scanner.hasNextDouble()) {
-          operands.push(scanner.nextDouble());
-        }
+      while (scanner.hasNextDouble()) {
+        operands.push(scanner.nextDouble());
       }
     } catch (NoSuchElementException ignored) {
 
